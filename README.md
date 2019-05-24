@@ -3,10 +3,12 @@
 [![NPM version 0.1.0][badge-package]](https://www.npmjs.com/package/critic-markup)
 [![MIT license][badge-license]](https://opensource.org/licenses/MIT)
 [![Prettier][badge-prettier]](https://github.com/prettier/prettier)
+[![Travis CI][badge-travis]](https://travis-ci.org/vimtaai/critic-markup)
 
 [badge-package]: https://img.shields.io/badge/npm-0.1.0-cc3534.svg?style=flat-square
 [badge-license]: https://img.shields.io/badge/license-MIT-green.svg?style=flat-square
 [badge-prettier]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square
+[badge-travis]: https://img.shields.io/travis/vimtaai/critic-markup.svg?style=flat-square
 
 > CriticMarkup in JavaScript
 
