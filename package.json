@@ -11,9 +11,11 @@
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint src/**.js",
-    "test": "jest"
+    "test": "jest",
+    "coverage": "jest --coverage && cat coverage/lcov.info | coveralls"
   },
   "devDependencies": {
+    "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
     "eslint-config-problems": "^3.0.1",

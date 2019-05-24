@@ -6,7 +6,7 @@
 [![Travis CI][badge-travis]](https://travis-ci.org/vimtaai/critic-markup)
 [![Coverage Status](badge-coveralls)](https://coveralls.io/github/vimtaai/critic-markup?branch=master)
 
-[badge-package]: https://img.shields.io/badge/npm-0.1.0-cc3534.svg?style=flat-square
+[badge-package]: https://img.shields.io/npm/v/critic-markup.svg?style=flat-square
 [badge-license]: https://img.shields.io/github/license/vimtaai/critic-markup.svg?style=flat-square
 [badge-prettier]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square
 [badge-travis]: https://img.shields.io/travis/vimtaai/critic-markup.svg?style=flat-square
