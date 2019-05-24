@@ -1,10 +1,10 @@
-# Critic Markup
+# CriticMarkup
 
 [![NPM version 0.1.0][badge-package]](https://www.npmjs.com/package/critic-markup)
 [![MIT license][badge-license]](https://opensource.org/licenses/MIT)
 [![Prettier][badge-prettier]](https://github.com/prettier/prettier)
 [![Travis CI][badge-travis]](https://travis-ci.org/vimtaai/critic-markup)
-[![Coverage Status](badge-coveralls)](https://coveralls.io/github/vimtaai/critic-markup?branch=master)
+[![Coverage Status][badge-coveralls]](https://coveralls.io/github/vimtaai/critic-markup?branch=master)
 
 [badge-package]: https://img.shields.io/npm/v/critic-markup.svg?style=flat-square
 [badge-license]: https://img.shields.io/github/license/vimtaai/critic-markup.svg?style=flat-square

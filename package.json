@@ -12,7 +12,7 @@
   "scripts": {
     "lint": "eslint src/**.js",
     "test": "jest",
-    "coverage": "jest --coverage && cat coverage/lcov.info | coveralls"
+    "coverage": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "devDependencies": {
     "coveralls": "^3.0.3",
