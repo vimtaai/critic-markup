@@ -3,3 +3,6 @@
 
 # dependencies
 node_modules
+
+# code coverage
+coverage
