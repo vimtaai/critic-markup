@@ -1,0 +1,25 @@
+{
+  "name": "critic-markup",
+  "version": "0.1.0",
+  "description": "Implementation of the Critic Markup syntax in JavaScript",
+  "author": "Márton Visnovitz <vimtaai@inf.elte.hu>",
+  "license": "MIT",
+  "repository": "github:vimtaai/critic-markup",
+  "files": [
+    "/src"
+  ],
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint src/**.js",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-config-problems": "^3.0.1",
+    "eslint-plugin-jest": "^22.6.4",
+    "eslint-plugin-prettier": "^3.1.0",
+    "jest": "^24.8.0",
+    "prettier": "^1.17.1"
+  }
+}

@@ -1,0 +1,5 @@
+# editor config
+.vscode
+
+# dependencies
+node_modules
