@@ -1,10 +1,26 @@
+const { matchAll } = require("./utils/match-all");
 const { addition } = require("./syntax/addition");
 const { deletion } = require("./syntax/deletion");
 const { substitution } = require("./syntax/substitution");
 const { comment } = require("./syntax/comment");
 const { highlight } = require("./syntax/highlight");
 
-function renderCriticMarkup(text) {
+function matchSortComparator(match1, match2) {
+  return match1.start - match2.start;
+}
+
+function parse(text) {
+  const substitutions = matchAll(text, substitution.regex).map(substitution.annotate);
+  const additions = matchAll(text, addition.regex).map(addition.annotate);
+  const deletions = matchAll(text, deletion.regex).map(deletion.annotate);
+  const highlights = matchAll(text, highlight.regex).map(highlight.annotate);
+  const comments = matchAll(text, comment.regex).map(comment.annotate);
+
+  const allMatches = [...substitutions, ...additions, ...deletions, ...highlights, ...comments];
+  return allMatches.sort(matchSortComparator);
+}
+
+function render(text) {
   return text
     .replace(substitution.regex, substitution.render)
     .replace(addition.regex, addition.render)
@@ -13,4 +29,4 @@ function renderCriticMarkup(text) {
     .replace(comment.regex, comment.render);
 }
 
-module.exports = { renderCriticMarkup };
+module.exports = { parse, render };

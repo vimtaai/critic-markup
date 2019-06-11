@@ -16,7 +16,7 @@ test("`matchAll` should return the first matching occurence", function() {
     start: 5,
     end: 12,
     length: 7,
-    content: " ipsum "
+    content: [" ipsum "]
   };
 
   const output = matchAll(input, regex);
@@ -30,7 +30,7 @@ test("`matchAll` should return the first matching occurence with capture group",
     start: 5,
     end: 12,
     length: 7,
-    content: "ipsum"
+    content: ["ipsum"]
   };
 
   const output = matchAll(input, regex);
@@ -45,13 +45,13 @@ test("`matchAll` sould return all matching occurences", function() {
       start: 5,
       end: 12,
       length: 7,
-      content: "ipsum"
+      content: ["ipsum"]
     },
     {
       start: 21,
       end: 28,
       length: 7,
-      content: "isupm"
+      content: ["isupm"]
     }
   ];
 

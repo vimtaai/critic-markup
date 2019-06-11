@@ -1,9 +1,15 @@
 function createMatchDescriptor(match) {
+  const content = [match[1] || match[0]];
+
+  if (match[2]) {
+    content.push(match[2]);
+  }
+
   return {
     start: match.index,
     end: match.index + match[0].length,
     length: match[0].length,
-    content: match[1] || match[0]
+    content
   };
 }
 
