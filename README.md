@@ -14,7 +14,7 @@
 
 > CriticMarkup in JavaScript
 
-This package is an implementation of [CriticMarkup](http://criticmarkup.com/) in JavaScript as a Node.js package. It provides a function to render CriticMarkup syntax into HTML.
+This package is an implementation of [CriticMarkup](http://criticmarkup.com/) in JavaScript as a Node.js package. It provides a function to parse CriticMarkup syntax or render it into HTML.
 
 ## Usage
 
@@ -24,12 +24,21 @@ Install the package:
 npm install critic-markup
 ```
 
-The `critic-markup` package exposes a single function, `renderCriticMarkup()` as an object member.
+The `critic-markup` package exposes a two functions, `parse()` and `render()` as object members. The `parse()` function returns an array of all the CriticMarkup tag occurrences in a string with their most important metadata. The `render()` function returns the HTML equivalent of the CriticMarkup code as a string.
 
 ```js
-const { renderCriticMarkup } = require('critic-markup');
+const { parse, render } = require('critic-markup');
 
-renderCriticMarkup(`Lorem{++ ipsum++} dolor sit amet.`);
+parse(`Lorem{++ ipsum++} dolor sit amet.`);
+// [{
+//   type: "addition",
+//   start: 5,
+//   end: 17,
+//   length: 12,
+//   content: [" ipsum"]
+// }]
+
+render(`Lorem{++ ipsum++} dolor sit amet.`);
 // Lorem<ins> ipsum</ins> dolor sit amet.
 ```
 
