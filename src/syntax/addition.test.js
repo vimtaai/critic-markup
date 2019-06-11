@@ -13,7 +13,7 @@ test("Addition should parse inline properly", function() {
     { type: "addition", start: 17, end: 27, length: 10, content: expectedContent }
   ];
 
-  expect(matchAll(input, addition.regex).map(addition.annotate)).toEqual(expectedOutput);
+  expect(matchAll(input, addition).map(addition.annotate)).toEqual(expectedOutput);
 });
 
 test("Addition should render inline properly", function() {
@@ -30,7 +30,7 @@ test("Addition should parse added paragraph properly", function() {
     { type: "addition", start: 215, end: 223, length: 8, content: expectedContent }
   ];
 
-  expect(matchAll(input, addition.regex).map(addition.annotate)).toEqual(expectedOutput);
+  expect(matchAll(input, addition).map(addition.annotate)).toEqual(expectedOutput);
 });
 
 test("Addition should render added paragraph properly", function() {

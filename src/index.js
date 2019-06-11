@@ -10,11 +10,11 @@ function matchSortComparator(match1, match2) {
 }
 
 function parse(text) {
-  const substitutions = matchAll(text, substitution.regex).map(substitution.annotate);
-  const additions = matchAll(text, addition.regex).map(addition.annotate);
-  const deletions = matchAll(text, deletion.regex).map(deletion.annotate);
-  const highlights = matchAll(text, highlight.regex).map(highlight.annotate);
-  const comments = matchAll(text, comment.regex).map(comment.annotate);
+  const substitutions = matchAll(text, substitution).map(substitution.annotate);
+  const additions = matchAll(text, addition).map(addition.annotate);
+  const deletions = matchAll(text, deletion).map(deletion.annotate);
+  const highlights = matchAll(text, highlight).map(highlight.annotate);
+  const comments = matchAll(text, comment).map(comment.annotate);
 
   const allMatches = [...substitutions, ...additions, ...deletions, ...highlights, ...comments];
   return allMatches.sort(matchSortComparator);

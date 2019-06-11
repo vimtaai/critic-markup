@@ -15,7 +15,7 @@ test("Highlight should parse inline properly", function() {
     { type: "highlight", start: 57, end: 172, length: 115, content: expectedContent }
   ];
 
-  expect(matchAll(input, highlight.regex).map(highlight.annotate)).toEqual(expectedOutput);
+  expect(matchAll(input, highlight).map(highlight.annotate)).toEqual(expectedOutput);
 });
 
 test("Highlight should render inline properly", function() {

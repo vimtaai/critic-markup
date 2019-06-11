@@ -1,6 +1,6 @@
 const addition = {
   regex: /\{\+\+(.*?)\+\+\}/gs,
-  regexOffset: 0,
+  validate: () => true,
   annotate(match) {
     return { type: "addition", ...match };
   },

@@ -1,6 +1,9 @@
+const ignorePattern = "==}";
+
 const comment = {
-  regex: /(?<!==\})\{>>(.*?)<<\}/gs,
-  regexOffset: 3,
+  regex: /\{>>(.*?)<<\}/gs,
+  validate: ({ input, index }) =>
+    input.substr(index - ignorePattern.length, ignorePattern.length) !== ignorePattern,
   annotate(match) {
     return { type: "comment", ...match };
   },

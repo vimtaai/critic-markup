@@ -13,7 +13,7 @@ test("Deletion should parse inline properly", function() {
     { type: "deletion", start: 5, end: 17, length: 12, content: expectedContent }
   ];
 
-  expect(matchAll(input, deletion.regex).map(deletion.annotate)).toEqual(expectedOutput);
+  expect(matchAll(input, deletion).map(deletion.annotate)).toEqual(expectedOutput);
 });
 
 test("Deletion should render inline properly", function() {
@@ -30,7 +30,7 @@ test("Deletion should parse added paragraph properly", function() {
     { type: "deletion", start: 215, end: 223, length: 8, content: expectedContent }
   ];
 
-  expect(matchAll(input, deletion.regex).map(deletion.annotate)).toEqual(expectedOutput);
+  expect(matchAll(input, deletion).map(deletion.annotate)).toEqual(expectedOutput);
 });
 
 test("Deletion should render deleted paragraph properly", function() {

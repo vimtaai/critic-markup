@@ -10,7 +10,7 @@ test("Comment should parse inline properly", function() {
     { type: "comment", start: 27, end: 50, length: 23, content: expectedContent }
   ];
 
-  expect(matchAll(input, comment.regex).map(comment.annotate)).toEqual(expectedOutput);
+  expect(matchAll(input, comment).map(comment.annotate)).toEqual(expectedOutput);
 });
 
 test("Comment should render inline properly", function() {

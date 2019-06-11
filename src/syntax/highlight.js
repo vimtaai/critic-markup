@@ -2,7 +2,7 @@ const { comment } = require("./comment");
 
 const highlight = {
   regex: /\{==(.*?)==\}\{>>(.*?)<<\}/gs,
-  regexOffset: 0,
+  validate: () => true,
   annotate(match) {
     return { type: "highlight", ...match };
   },

@@ -1,6 +1,6 @@
 const deletion = {
   regex: /\{--(.*?)--\}/gs,
-  regexOffset: 0,
+  validate: () => true,
   annotate(match) {
     return { type: "deletion", ...match };
   },

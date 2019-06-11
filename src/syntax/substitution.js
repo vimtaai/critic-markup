@@ -3,7 +3,7 @@ const { deletion } = require("./deletion");
 
 const substitution = {
   regex: /\{~~(.*?)~>(.*?)~~\}/gs,
-  regexOffset: 0,
+  validate: () => true,
   annotate(match) {
     return { type: "substitution", ...match };
   },

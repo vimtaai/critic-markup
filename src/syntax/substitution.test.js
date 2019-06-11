@@ -13,7 +13,7 @@ test("Substitution should parse inline properly", function() {
     { type: "substitution", start: 6, end: 25, length: 19, content: expectedContent }
   ];
 
-  expect(matchAll(input, substitution.regex).map(substitution.annotate)).toEqual(expectedOutput);
+  expect(matchAll(input, substitution).map(substitution.annotate)).toEqual(expectedOutput);
 });
 
 test("Substitution should render inline properly", function() {
@@ -32,7 +32,7 @@ test("Substitution should parse between paragraphs properly", function() {
     { type: "substitution", start: 152, end: 225, length: 73, content: expectedContent }
   ];
 
-  expect(matchAll(input, substitution.regex).map(substitution.annotate)).toEqual(expectedOutput);
+  expect(matchAll(input, substitution).map(substitution.annotate)).toEqual(expectedOutput);
 });
 
 test("Substitution should render between paragraphs properly", function() {

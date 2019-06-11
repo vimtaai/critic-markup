@@ -13,12 +13,16 @@ function createMatchDescriptor(match) {
   };
 }
 
-function matchAll(str, regex) {
-  const regexClone = new RegExp(regex, "gs");
+function matchAll(str, syntaxDescriptor) {
+  const regexClone = new RegExp(syntaxDescriptor.regex, "gs");
   const results = [];
 
   let match;
   while ((match = regexClone.exec(str))) {
+    if (!syntaxDescriptor.validate(match)) {
+      continue;
+    }
+
     const matchDescriptor = createMatchDescriptor(match);
     results.push(matchDescriptor);
   }
