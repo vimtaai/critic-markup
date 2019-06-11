@@ -14,7 +14,7 @@ function createMatchDescriptor(match) {
 }
 
 function matchAll(str, regex) {
-  const regexClone = new RegExp(regex, "g");
+  const regexClone = new RegExp(regex, "gs");
   const results = [];
 
   let match;
