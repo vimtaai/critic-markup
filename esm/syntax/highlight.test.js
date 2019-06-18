@@ -1,5 +1,5 @@
-const { matchAll } = require("../utils/match-all");
-const { highlight } = require("./highlight");
+import { matchAll } from "../utils/match-all";
+import { highlight } from "./highlight";
 
 const inputs = [
   `Lorem ipsum dolor sit amet, consectetur adipiscing elit. {==Vestibulum at orci magna. Phasellus augue justo, sodales eu pulvinar ac, vulputate eget nulla.==}{>>confusing<<} Mauris massa sem, tempor sed cursus et, semper tincidunt lacus.`

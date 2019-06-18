@@ -1,12 +1,18 @@
 env:
   node: true,
   jest/globals: true
+
 plugins:
   - prettier
   - jest
+
 extends:
   - problems/node10
   - plugin:prettier/recommended
   - plugin:jest/recommended
+
+parserOptions:
+  sourceType: module
+
 rules:
   strict: off

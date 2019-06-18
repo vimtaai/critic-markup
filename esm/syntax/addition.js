@@ -1,4 +1,4 @@
-const addition = {
+export const addition = {
   regex: /\{\+\+(.*?)\+\+\}/gs,
   validate: () => true,
   annotate(match) {
@@ -12,5 +12,3 @@ const addition = {
     return `<ins>${match}</ins>`;
   }
 };
-
-module.exports = { addition };

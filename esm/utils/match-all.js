@@ -13,7 +13,7 @@ function createMatchDescriptor(match) {
   };
 }
 
-function matchAll(str, syntaxDescriptor) {
+export function matchAll(str, syntaxDescriptor) {
   const regexClone = new RegExp(syntaxDescriptor.regex, "gs");
   const results = [];
 
@@ -29,5 +29,3 @@ function matchAll(str, syntaxDescriptor) {
 
   return results;
 }
-
-module.exports = { matchAll };

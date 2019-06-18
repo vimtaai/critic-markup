@@ -1,6 +1,6 @@
-const { comment } = require("./comment");
+import { comment } from "./comment";
 
-const highlight = {
+export const highlight = {
   regex: /\{==(.*?)==\}\{>>(.*?)<<\}/gs,
   validate: () => true,
   annotate(match) {
@@ -10,5 +10,3 @@ const highlight = {
     return `<mark>${match1}</mark>${comment.render(_, match2)}`;
   }
 };
-
-module.exports = { highlight };

@@ -1,4 +1,4 @@
-const { parse, render } = require("./index");
+import { parse, render } from "./index";
 
 const inputs = [
   `Don't go around saying{-- to people that--} the world owes you a living. The world owes you nothing. It was here first. {~~One~>Only one~~} thing is impossible for God: To find {++any++} sense in any copyright law on the planet. {==Truth is stranger than fiction==}{>>strange but true<<}, but it is because Fiction is obliged to stick to possibilities; Truth isn't.`

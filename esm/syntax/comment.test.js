@@ -1,5 +1,5 @@
-const { matchAll } = require("../utils/match-all");
-const { comment } = require("./comment");
+import { matchAll } from "../utils/match-all";
+import { comment } from "./comment";
 
 const inputs = [`Lorem ipsum dolor sit amet.{>>This is a comment<<}`];
 

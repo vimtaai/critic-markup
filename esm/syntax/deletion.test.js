@@ -1,5 +1,5 @@
-const { matchAll } = require("../utils/match-all");
-const { deletion } = require("./deletion");
+import { matchAll } from "../utils/match-all";
+import { deletion } from "./deletion";
 
 const inputs = [
   `Lorem{-- ipsum--} dolor sit amet…`,

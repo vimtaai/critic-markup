@@ -1,4 +1,4 @@
-const deletion = {
+export const deletion = {
   regex: /\{--(.*?)--\}/gs,
   validate: () => true,
   annotate(match) {
@@ -12,5 +12,3 @@ const deletion = {
     return `<del>${match}</del>`;
   }
 };
-
-module.exports = { deletion };

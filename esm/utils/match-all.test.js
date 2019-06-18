@@ -1,4 +1,4 @@
-const { matchAll } = require("./match-all");
+import { matchAll } from "./match-all";
 
 const inputs = ["Lorem ipsum dolor sit isupm amet..."];
 const syntaxDescriptors = {

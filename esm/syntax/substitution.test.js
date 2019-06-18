@@ -1,5 +1,5 @@
-const { matchAll } = require("../utils/match-all");
-const { substitution } = require("./substitution");
+import { matchAll } from "../utils/match-all";
+import { substitution } from "./substitution";
 
 const inputs = [
   `Lorem {~~hipsum~>ipsum~~} dolor sit amet…`,

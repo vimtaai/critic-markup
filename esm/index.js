@@ -1,15 +1,15 @@
-const { matchAll } = require("./utils/match-all");
-const { addition } = require("./syntax/addition");
-const { deletion } = require("./syntax/deletion");
-const { substitution } = require("./syntax/substitution");
-const { comment } = require("./syntax/comment");
-const { highlight } = require("./syntax/highlight");
+import { matchAll } from "./utils/match-all";
+import { addition } from "./syntax/addition";
+import { deletion } from "./syntax/deletion";
+import { substitution } from "./syntax/substitution";
+import { comment } from "./syntax/comment";
+import { highlight } from "./syntax/highlight";
 
 function matchSortComparator(match1, match2) {
   return match1.start - match2.start;
 }
 
-function parse(text) {
+export function parse(text) {
   const substitutions = matchAll(text, substitution).map(substitution.annotate);
   const additions = matchAll(text, addition).map(addition.annotate);
   const deletions = matchAll(text, deletion).map(deletion.annotate);
@@ -20,7 +20,7 @@ function parse(text) {
   return allMatches.sort(matchSortComparator);
 }
 
-function render(text) {
+export function render(text) {
   return text
     .replace(substitution.regex, substitution.render)
     .replace(addition.regex, addition.render)
@@ -28,5 +28,3 @@ function render(text) {
     .replace(highlight.regex, highlight.render)
     .replace(comment.regex, comment.render);
 }
-
-module.exports = { parse, render };

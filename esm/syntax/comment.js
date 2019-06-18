@@ -1,6 +1,6 @@
 const ignorePattern = "==}";
 
-const comment = {
+export const comment = {
   regex: /\{>>(.*?)<<\}/gs,
   validate: ({ input, index }) =>
     input.substr(index - ignorePattern.length, ignorePattern.length) !== ignorePattern,
@@ -11,5 +11,3 @@ const comment = {
     return `<span class="critic comment">${match}</span>`;
   }
 };
-
-module.exports = { comment };

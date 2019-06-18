@@ -8,13 +8,15 @@
   "files": [
     "/src"
   ],
-  "main": "src/index.js",
+  "main": "esm/index.js",
   "scripts": {
-    "lint": "eslint src/**.js",
+    "lint": "eslint esm/**.js",
     "test": "jest",
-    "coverage": "jest --coverage --coverageReporters=text-lcov | coveralls"
+    "coverage": "jest --coverage"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
     "coveralls": "^3.0.4",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^5.0.0",
@@ -22,6 +24,7 @@
     "eslint-plugin-jest": "^22.6.4",
     "eslint-plugin-prettier": "^3.1.0",
     "jest": "^24.8.0",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "rollup": "^1.15.6"
   }
 }

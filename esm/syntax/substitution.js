@@ -1,7 +1,7 @@
-const { addition } = require("./addition");
-const { deletion } = require("./deletion");
+import { addition } from "./addition";
+import { deletion } from "./deletion";
 
-const substitution = {
+export const substitution = {
   regex: /\{~~(.*?)~>(.*?)~~\}/gs,
   validate: () => true,
   annotate(match) {
@@ -11,5 +11,3 @@ const substitution = {
     return deletion.render(_, match1) + addition.render(_, match2).trimLeft();
   }
 };
-
-module.exports = { substitution };
