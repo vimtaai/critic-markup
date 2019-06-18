@@ -4,5 +4,8 @@ node_js:
   - node
   - lts/*
 
+before_install:
+  - npm install --global coveralls
+
 after_success:
   - npm run coverage -- --coverageReporters=text-lcov | coveralls

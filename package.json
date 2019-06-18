@@ -17,7 +17,6 @@
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
-    "coveralls": "^3.0.4",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^5.0.0",
     "eslint-config-problems": "^3.0.1",
