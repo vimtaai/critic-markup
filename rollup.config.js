@@ -1,7 +1,13 @@
-const input = "esm/index.js";
+const resolve = require("rollup-plugin-babel");
+const babel = require("rollup-plugin-babel");
 
-const output = {};
+const input = "src/index.js";
 
-const plugins = [];
+const output = {
+  file: "lib/critic-markup.js",
+  format: "cjs"
+};
+
+const plugins = [resolve(), babel()];
 
 module.exports = { input, output, plugins };

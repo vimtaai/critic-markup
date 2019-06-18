@@ -4,5 +4,9 @@
 # dependencies
 node_modules
 
+# build files
+lib
+dist
+
 # code coverage
 coverage

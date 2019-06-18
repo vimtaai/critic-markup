@@ -5,12 +5,17 @@
   "author": "Márton Visnovitz <vimtaai@inf.elte.hu>",
   "license": "MIT",
   "repository": "github:vimtaai/critic-markup",
+  "module": "src/index.js",
+  "main": "lib/critic-markup.js",
+  "browser": "dist/critic-markup.min.js",
   "files": [
-    "/src"
+    "/src",
+    "/lib",
+    "/dist"
   ],
-  "main": "esm/index.js",
   "scripts": {
-    "lint": "eslint esm/**.js",
+    "build:node": "rollup -c",
+    "lint": "eslint src/**.js",
     "test": "jest",
     "coverage": "jest --coverage"
   },
@@ -24,6 +29,8 @@
     "eslint-plugin-prettier": "^3.1.0",
     "jest": "^24.8.0",
     "prettier": "^1.18.2",
-    "rollup": "^1.15.6"
+    "rollup": "^1.15.6",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-node-resolve": "^5.0.3"
   }
 }
