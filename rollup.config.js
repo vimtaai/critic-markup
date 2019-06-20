@@ -6,7 +6,7 @@ const { name: outputFileName, module: input } = require("./package.json");
 
 const isProductionBuild = process.env.BUILD === "production";
 const output = {};
-const plugins = [resolve(), babel()];
+const plugins = [resolve(), babel({ modules: false, exclude: "node_modules/**" })];
 
 if (process.env.TARGET === "node") {
   output.format = "cjs";
@@ -15,7 +15,7 @@ if (process.env.TARGET === "node") {
 
 if (process.env.TARGET === "browser") {
   output.format = "iife";
-  output.file = `dist/${outputFileName}.${isProductionBuild ? ".min" : ""}.js`;
+  output.file = `dist/${outputFileName}${isProductionBuild ? ".min" : ""}.js`;
   output.name = "CriticMarkup";
   output.sourcemap = !isProductionBuild;
 

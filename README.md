@@ -18,9 +18,15 @@ Install via `npm`:
 npm install critic-markup
 ```
 
+Load from a CDN:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/critic-markup"></script>
+```
+
 ## Usage
 
-The `critic-markup` package exposes a two functions, `parse()` and `render()` as object members. The `parse()` function returns an array of all the CriticMarkup tag occurrences in a string with their most important metadata. The `render()` function returns the HTML equivalent of the CriticMarkup code as a string.
+The `critic-markup` package exposes two functions, `parse()` and `render()`. The `parse()` function returns an array of all the CriticMarkup tag occurrences in a string with their most important metadata. The `render()` function returns the HTML equivalent of the CriticMarkup code as a string.
 
 ```js
 const { parse, render } = require('critic-markup');
@@ -36,6 +42,12 @@ parse(`Lorem{++ ipsum++} dolor sit amet.`);
 
 render(`Lorem{++ ipsum++} dolor sit amet.`);
 // Lorem<ins> ipsum</ins> dolor sit amet.
+```
+
+In a browser environment you can access the `parse()` and `render()` functions via the `CriticMarkup` global object.
+
+```js
+const { parse, render } = CriticMarkup;
 ```
 
 ## Contributing

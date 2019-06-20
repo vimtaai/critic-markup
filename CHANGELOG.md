@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 0.3.0 (2019-06-20)
+
+- **Added** browser and CJS builds
+- **Changed** source code to ES Module style
+
 ## Version 0.2.1 (2019-06-11)
 
 - **Fixed** compatibility bug of negative lookahead
