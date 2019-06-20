@@ -14,10 +14,15 @@
     "/dist"
   ],
   "scripts": {
-    "build:node": "rollup -c",
     "lint": "eslint src/**.js",
     "test": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "build:node": "rollup -c --environment TARGET:node",
+    "build:browser": "rollup -c --environment TARGET:browser,BUILD:development",
+    "build:browser:production": "rollup -c --environment TARGET:browser,BUILD:production",
+    "watch:node": "rollup -c -w --environment TARGET:node",
+    "watch:browser": "rollup -c -w --environment TARGET:browser,BUILD:development",
+    "prepare": "npm run build:node && npm run build:browser && npm run build:browser:production"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -25,12 +30,13 @@
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^5.0.0",
     "eslint-config-problems": "^3.0.1",
-    "eslint-plugin-jest": "^22.6.4",
+    "eslint-plugin-jest": "^22.7.0",
     "eslint-plugin-prettier": "^3.1.0",
     "jest": "^24.8.0",
     "prettier": "^1.18.2",
     "rollup": "^1.15.6",
     "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-babel-minify": "^8.0.0",
     "rollup-plugin-node-resolve": "^5.0.3"
   }
 }
