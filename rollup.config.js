@@ -6,7 +6,7 @@ const { name: outputFileName, module: input } = require("./package.json");
 
 const isProductionBuild = process.env.BUILD === "production";
 const output = {};
-const plugins = [resolve(), babel({ modules: false, exclude: "node_modules/**" })];
+const plugins = [resolve(), babel()];
 
 if (process.env.TARGET === "node") {
   output.format = "cjs";
