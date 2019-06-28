@@ -1,7 +1,7 @@
 # CriticMarkup
 
 [![Version][badge-version]](https://www.npmjs.com/package/critic-markup)
-[![License][badge-license]](https://opensource.org/licenses/MIT)
+[![License][badge-license]](https://github.com/vimtaai/critic-markup/blob/master/LICENSE.md)
 [![Code style][badge-style]](https://github.com/prettier/prettier)
 [![Build][badge-build]](https://travis-ci.org/vimtaai/critic-markup)
 [![Coverage][badge-coverage]](https://coveralls.io/github/vimtaai/critic-markup?branch=master)
