@@ -1,6 +1,6 @@
 {
   "name": "critic-markup",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "CriticMarkup in JavaScript",
   "author": "Márton Visnovitz <vimtaai@inf.elte.hu>",
   "license": "MIT",
