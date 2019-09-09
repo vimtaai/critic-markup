@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.3.1 (2019-09-09)
+
+- **Updated** dependencies
+
 ## Version 0.3.0 (2019-06-20)
 
 - **Added** browser and CJS builds
