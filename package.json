@@ -8,11 +8,7 @@
   "module": "src/index.js",
   "main": "lib/critic-markup.js",
   "browser": "dist/critic-markup.min.js",
-  "files": [
-    "/src",
-    "/lib",
-    "/dist"
-  ],
+  "files": ["/src", "/lib", "/dist"],
   "scripts": {
     "lint": "eslint src/**.js",
     "test": "jest",
