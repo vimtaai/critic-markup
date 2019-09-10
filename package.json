@@ -8,7 +8,11 @@
   "module": "src/index.js",
   "main": "lib/critic-markup.js",
   "browser": "dist/critic-markup.min.js",
-  "files": ["/src", "/lib", "/dist"],
+  "files": [
+    "/src",
+    "/lib",
+    "/dist"
+  ],
   "scripts": {
     "lint": "eslint src/**.js",
     "test": "jest",
@@ -32,7 +36,6 @@
     "prettier": "^1.18.2",
     "rollup": "^1.21.2",
     "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-babel-minify": "^9.0.0",
-    "rollup-plugin-node-resolve": "^5.2.0"
+    "rollup-plugin-babel-minify": "^9.0.0"
   }
 }

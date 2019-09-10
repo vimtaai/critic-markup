@@ -1,4 +1,3 @@
-const resolve = require("rollup-plugin-node-resolve");
 const babel = require("rollup-plugin-babel");
 const minify = require("rollup-plugin-babel-minify");
 
@@ -6,7 +5,7 @@ const { name: outputFileName, module: input } = require("./package.json");
 
 const isProductionBuild = process.env.BUILD === "production";
 const output = {};
-const plugins = [resolve(), babel()];
+const plugins = [babel()];
 
 if (process.env.TARGET === "node") {
   output.format = "cjs";
