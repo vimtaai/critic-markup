@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 0.4.0 (2019-09-11)
+
+- **Updated** dependencies
+- **Change** the list of supported browsers **(breaking change)** - dropped support for IE and Opera Mini
+
 ## Version 0.3.1 (2019-09-09)
 
 - **Updated** dependencies
