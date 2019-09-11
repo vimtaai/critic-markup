@@ -16,7 +16,7 @@
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
-    "lint": "eslint src/**.js",
+    "lint": "eslint src/**/*.js",
     "build:node": "rollup -c --environment TARGET:node",
     "build:browser": "rollup -c --environment TARGET:browser,BUILD:development",
     "build:browser:production": "rollup -c --environment TARGET:browser,BUILD:production",
