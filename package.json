@@ -5,37 +5,22 @@
   "author": "Márton Visnovitz <vimtaai@inf.elte.hu>",
   "license": "MIT",
   "repository": "github:vimtaai/critic-markup",
-  "module": "src/index.js",
-  "main": "lib/critic-markup.js",
-  "browser": "dist/critic-markup.min.js",
+  "main": "src/index.js",
   "files": [
-    "/src",
-    "/lib",
-    "/dist"
+    "/src"
   ],
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
-    "lint": "eslint src/**/*.js",
-    "build:node": "rollup -c --environment TARGET:node",
-    "build:browser": "rollup -c --environment TARGET:browser,BUILD:development",
-    "build:browser:production": "rollup -c --environment TARGET:browser,BUILD:production",
-    "watch:node": "rollup -c -w --environment TARGET:node",
-    "watch:browser": "rollup -c -w --environment TARGET:browser,BUILD:development",
-    "prepare": "npm run build:node && npm run build:browser && npm run build:browser:production"
+    "lint": "eslint src/**/*.js"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.14",
-    "@babel/preset-env": "^7.13.12",
     "eslint": "^7.23.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-problems": "^5.0.0",
     "eslint-plugin-jest": "^24.3.4",
     "eslint-plugin-prettier": "^3.3.1",
     "jest": "^26.6.3",
-    "prettier": "^2.2.1",
-    "rollup": "^2.44.0",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-babel-minify": "^10.0.0"
+    "prettier": "^2.2.1"
   }
 }
