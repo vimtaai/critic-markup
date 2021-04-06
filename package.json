@@ -10,16 +10,16 @@
     "/src"
   ],
   "scripts": {
+    "prettier": "prettier --check src",
+    "lint": "eslint src/**/*.js",
     "test": "jest",
-    "coverage": "jest --coverage",
-    "lint": "eslint src/**/*.js"
+    "coverage": "jest --coverage"
   },
   "devDependencies": {
     "eslint": "^7.23.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-problems": "^5.0.0",
     "eslint-plugin-jest": "^24.3.4",
-    "eslint-plugin-prettier": "^3.3.1",
     "jest": "^26.6.3",
     "prettier": "^2.2.1"
   }

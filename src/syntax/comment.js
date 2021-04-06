@@ -9,5 +9,5 @@ export const comment = {
   },
   render(_, match) {
     return `<span class="critic comment">${match}</span>`;
-  }
+  },
 };

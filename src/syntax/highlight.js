@@ -8,5 +8,5 @@ export const highlight = {
   },
   render(_, match1, match2) {
     return `<mark>${match1}</mark>${comment.render(_, match2)}`;
-  }
+  },
 };

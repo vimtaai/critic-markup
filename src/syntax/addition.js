@@ -10,5 +10,5 @@ export const addition = {
     }
 
     return `<ins>${match}</ins>`;
-  }
+  },
 };

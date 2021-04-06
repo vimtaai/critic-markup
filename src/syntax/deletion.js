@@ -10,5 +10,5 @@ export const deletion = {
     }
 
     return `<del>${match}</del>`;
-  }
+  },
 };

@@ -9,7 +9,7 @@ function createMatchDescriptor(match) {
     start: match.index,
     end: match.index + match[0].length,
     length: match[0].length,
-    content
+    content,
   };
 }
 
