@@ -1,18 +1,14 @@
 env:
-  node: true,
-  jest/globals: true
-
-plugins:
-  - prettier
-  - jest
+  node: true
 
 extends:
-  - problems/node10
-  - plugin:prettier/recommended
-  - plugin:jest/recommended
+  - eslint:recommended
+  - prettier
+  - mocha:recommended
 
 parserOptions:
   sourceType: module
+  ecmaVersion: 2020
 
 rules:
   strict: off

@@ -1,4 +1,4 @@
-import { comment } from "./comment";
+import { comment } from "./comment.js";
 
 export const highlight = {
   regex: /\{==(.*?)==\}\{>>(.*?)<<\}/gs,
@@ -8,5 +8,5 @@ export const highlight = {
   },
   render(_, match1, match2) {
     return `<mark>${match1}</mark>${comment.render(_, match2)}`;
-  },
+  }
 };

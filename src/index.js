@@ -1,9 +1,9 @@
-import { matchAll } from "./utils/match-all";
-import { addition } from "./syntax/addition";
-import { deletion } from "./syntax/deletion";
-import { substitution } from "./syntax/substitution";
-import { comment } from "./syntax/comment";
-import { highlight } from "./syntax/highlight";
+import { matchAll } from "./utils/match-all.js";
+import { addition } from "./syntax/addition.js";
+import { deletion } from "./syntax/deletion.js";
+import { substitution } from "./syntax/substitution.js";
+import { comment } from "./syntax/comment.js";
+import { highlight } from "./syntax/highlight.js";
 
 function matchSortComparator(match1, match2) {
   return match1.start - match2.start;

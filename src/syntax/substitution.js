@@ -1,5 +1,5 @@
-import { addition } from "./addition";
-import { deletion } from "./deletion";
+import { addition } from "./addition.js";
+import { deletion } from "./deletion.js";
 
 export const substitution = {
   regex: /\{~~(.*?)~>(.*?)~~\}/gs,
@@ -9,5 +9,5 @@ export const substitution = {
   },
   render(_, match1, match2) {
     return deletion.render(_, match1) + addition.render(_, match2).trimLeft();
-  },
+  }
 };
