@@ -1,24 +1,38 @@
 import { expect } from "chai";
 
-import { matchAll } from "../utils/match-all.js";
+import { parseMatches } from "../utils/parse-matches.js";
+import { renderMatches } from "../utils/render-matches.js";
+
 import { comment } from "./comment.js";
 
-const inputs = [`Lorem ipsum dolor sit amet.{>>This is a comment<<}`];
-
-describe("comment", function () {
-  it("should parse inline properly", function () {
-    const input = inputs[0];
-    const expectedContent = ["This is a comment"];
+describe("comment", () => {
+  it("should parse properly", () => {
+    const input = `Lorem ipsum dolor sit {>>comment<<}.`;
     const expectedOutput = [
-      { type: "comment", start: 27, end: 50, length: 23, content: expectedContent }
+      {
+        type: "comment",
+        inputText: "Lorem ipsum dolor sit {>>comment<<}.",
+        matchedText: "{>>comment<<}",
+        start: 22,
+        end: 35,
+        length: 13,
+        content: { comment: "comment" }
+      }
     ];
 
-    expect(matchAll(input, comment).map(comment.annotate)).to.deep.equal(expectedOutput);
+    expect(parseMatches(input, comment)).to.deep.equal(expectedOutput);
   });
 
-  it("should render inline properly", function () {
-    const input = inputs[0];
-    const expectedOutput = `Lorem ipsum dolor sit amet.<span class="critic comment">This is a comment</span>`;
-    expect(input.replace(comment.regex, comment.render)).to.equal(expectedOutput);
+  it("should render properly", () => {
+    const input = `Lorem ipsum dolor sit {>>comment<<}.`;
+    const expectedOutput = `Lorem ipsum dolor sit <span class="critic comment">comment</span>.`;
+
+    expect(renderMatches(input, comment)).to.equal(expectedOutput);
+  });
+
+  it("should ignore comments that are actually highlights", () => {
+    const input = `Lorem ipsum dolor {==sit ==}{>>comment<<}.`;
+
+    expect(parseMatches(input, comment)).to.deep.equal([]);
   });
 });

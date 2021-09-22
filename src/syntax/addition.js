@@ -1,14 +1,24 @@
-export const addition = {
-  regex: /\{\+\+(.*?)\+\+\}/gs,
-  validate: () => true,
-  annotate(match) {
-    return { type: "addition", ...match };
-  },
-  render(_, match) {
-    if (match.trim() === "") {
-      return `\n\n<ins class="break">&nbsp;</ins>\n\n`;
-    }
+const additionRegex = new RegExp(/\{\+\+(?<addition>.*?)\+\+\}/, "gs");
 
-    return `<ins>${match}</ins>`;
-  },
+function validateAddition() {
+  return true;
+}
+
+function annotateAddition(token) {
+  return { type: "addition", ...token };
+}
+
+function renderAddition(token) {
+  if (token.content.addition.trim() === "") {
+    return `\n\n<ins class="break">&nbsp;</ins>\n\n`;
+  }
+
+  return `<ins>${token.content.addition}</ins>`;
+}
+
+export const addition = {
+  regex: additionRegex,
+  validate: validateAddition,
+  annotate: annotateAddition,
+  render: renderAddition
 };

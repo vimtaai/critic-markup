@@ -1,30 +1,34 @@
-import { matchAll } from "./utils/match-all.js";
+import { parseMatches } from "./utils/parse-matches.js";
+import { renderMatches } from "./utils/render-matches.js";
+
 import { addition } from "./syntax/addition.js";
-import { deletion } from "./syntax/deletion.js";
-import { substitution } from "./syntax/substitution.js";
 import { comment } from "./syntax/comment.js";
+import { deletion } from "./syntax/deletion.js";
 import { highlight } from "./syntax/highlight.js";
+import { substitution } from "./syntax/substitution.js";
 
-function matchSortComparator(match1, match2) {
-  return match1.start - match2.start;
+function compareTokens(firstToken, secondToken) {
+  return firstToken.start - secondToken.start;
 }
 
-export function parse(text) {
-  const substitutions = matchAll(text, substitution).map(substitution.annotate);
-  const additions = matchAll(text, addition).map(addition.annotate);
-  const deletions = matchAll(text, deletion).map(deletion.annotate);
-  const highlights = matchAll(text, highlight).map(highlight.annotate);
-  const comments = matchAll(text, comment).map(comment.annotate);
-
-  const allMatches = [...substitutions, ...additions, ...deletions, ...highlights, ...comments];
-  return allMatches.sort(matchSortComparator);
+export function parse(inputText) {
+  return [
+    ...parseMatches(inputText, substitution),
+    ...parseMatches(inputText, addition),
+    ...parseMatches(inputText, deletion),
+    ...parseMatches(inputText, highlight),
+    ...parseMatches(inputText, comment)
+  ].sort(compareTokens);
 }
 
-export function render(text) {
-  return text
-    .replace(substitution.regex, substitution.render)
-    .replace(addition.regex, addition.render)
-    .replace(deletion.regex, deletion.render)
-    .replace(highlight.regex, highlight.render)
-    .replace(comment.regex, comment.render);
+export function render(inputText) {
+  let renderedText = inputText;
+
+  renderedText = renderMatches(renderedText, substitution);
+  renderedText = renderMatches(renderedText, addition);
+  renderedText = renderMatches(renderedText, deletion);
+  renderedText = renderMatches(renderedText, highlight);
+  renderedText = renderMatches(renderedText, comment);
+
+  return renderedText;
 }

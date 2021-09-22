@@ -1,14 +1,22 @@
 env:
   node: true
 
-extends:
-  - eslint:recommended
+plugins:
+  - mocha
   - prettier
-  - mocha:recommended
+
+extends:
+  - problems
+  - prettier
+  - plugin:mocha/recommended
 
 parserOptions:
   sourceType: module
   ecmaVersion: 2020
 
 rules:
-  strict: off
+  strict: 0
+  prettier/prettier: error
+  mocha/no-mocha-arrows: off
+  mocha/no-skipped-tests: warn
+  mocha/no-exclusive-tests: error

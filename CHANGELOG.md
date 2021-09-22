@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.0.0 (2021-09-22)
+
+- **Updated**: code style and formatting
+- **Changed**: now uses GitHub Actions for CI/CD
+- **Removed**: bundles and builds
+
 ## Version 0.4.0 (2019-09-11)
 
 - **Updated** dependencies

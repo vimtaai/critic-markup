@@ -1,30 +1,33 @@
 import { expect } from "chai";
 
-import { matchAll } from "../utils/match-all.js";
+import { parseMatches } from "../utils/parse-matches.js";
+import { renderMatches } from "../utils/render-matches.js";
+
 import { highlight } from "./highlight.js";
 
-const inputs = [
-  `Lorem ipsum dolor sit amet, consectetur adipiscing elit. {==Vestibulum at orci magna. Phasellus augue justo, sodales eu pulvinar ac, vulputate eget nulla.==}{>>confusing<<} Mauris massa sem, tempor sed cursus et, semper tincidunt lacus.`
-];
-
-describe("highlight", function () {
-  it("should parse inline properly", function () {
-    const input = inputs[0];
-    const expectedContent = [
-      "Vestibulum at orci magna. Phasellus augue justo, sodales eu pulvinar ac, vulputate eget nulla.",
-      "confusing"
-    ];
+describe("highlight", () => {
+  it("should parse inline properly", () => {
+    const input = "Lorem ipsum dolor {==sit==}{>>amet<<}…";
     const expectedOutput = [
-      { type: "highlight", start: 57, end: 172, length: 115, content: expectedContent }
+      {
+        type: "highlight",
+        inputText: "Lorem ipsum dolor {==sit==}{>>amet<<}…",
+        matchedText: "{==sit==}{>>amet<<}",
+        start: 18,
+        end: 37,
+        length: 19,
+        content: { highlight: "sit", comment: "amet" }
+      }
     ];
 
-    expect(matchAll(input, highlight).map(highlight.annotate)).to.deep.equal(expectedOutput);
+    expect(parseMatches(input, highlight)).to.deep.equal(expectedOutput);
   });
 
-  it("should render inline properly", function () {
-    const input = inputs[0];
-    const expectedOutput = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. <mark>Vestibulum at orci magna. Phasellus augue justo, sodales eu pulvinar ac, vulputate eget nulla.</mark><span class="critic comment">confusing</span> Mauris massa sem, tempor sed cursus et, semper tincidunt lacus.`;
+  it("should render inline properly", () => {
+    const input = "Lorem ipsum dolor {==sit==}{>>amet<<}…";
+    const expectedOutput =
+      'Lorem ipsum dolor <mark>sit</mark><span class="critic comment">amet</span>…';
 
-    expect(input.replace(highlight.regex, highlight.render)).to.equal(expectedOutput);
+    expect(renderMatches(input, highlight)).to.equal(expectedOutput);
   });
 });

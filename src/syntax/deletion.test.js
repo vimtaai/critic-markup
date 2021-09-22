@@ -1,45 +1,56 @@
 import { expect } from "chai";
 
-import { matchAll } from "../utils/match-all.js";
+import { parseMatches } from "../utils/parse-matches.js";
+import { renderMatches } from "../utils/render-matches.js";
+
 import { deletion } from "./deletion.js";
 
-const inputs = [
-  `Lorem{-- ipsum--} dolor sit amet…`,
-  `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at orci magna. Phasellus augue justo, sodales eu pulvinar ac, vulputate eget nulla. Mauris massa sem, tempor sed cursus et, semper tincidunt lacus.{--\n\n--}Praesent sagittis, quam id egestas consequat, nisl orci vehicula libero, quis ultricies nulla magna interdum sem. Maecenas eget orci vitae eros accumsan mollis. Cras mi mi, rutrum id aliquam in, aliquet vitae tellus. Sed neque justo, cursus in commodo eget, facilisis eget nunc. Cras tincidunt auctor varius.`
-];
-
-describe("deletion", function () {
-  it("should parse inline properly", function () {
-    const input = inputs[0];
-    const expectedContent = [" ipsum"];
+describe("deletion", () => {
+  it("should parse inline properly", () => {
+    const input = `Lorem{-- ipsum--} dolor sit amet…`;
     const expectedOutput = [
-      { type: "deletion", start: 5, end: 17, length: 12, content: expectedContent }
+      {
+        type: "deletion",
+        inputText: "Lorem{-- ipsum--} dolor sit amet…",
+        matchedText: "{-- ipsum--}",
+        start: 5,
+        end: 17,
+        length: 12,
+        content: { deletion: " ipsum" }
+      }
     ];
 
-    expect(matchAll(input, deletion).map(deletion.annotate)).to.deep.equal(expectedOutput);
+    expect(parseMatches(input, deletion)).to.deep.equal(expectedOutput);
   });
 
-  it("should render inline properly", function () {
-    const input = inputs[0];
+  it("should render inline properly", () => {
+    const input = `Lorem{-- ipsum--} dolor sit amet…`;
     const expectedOutput = `Lorem<del> ipsum</del> dolor sit amet…`;
 
-    expect(input.replace(deletion.regex, deletion.render)).to.equal(expectedOutput);
+    expect(renderMatches(input, deletion)).to.equal(expectedOutput);
   });
 
-  it("should parse added paragraph properly", function () {
-    const input = inputs[1];
-    const expectedContent = ["\n\n"];
+  it("should parse added paragraph properly", () => {
+    const input = `Lorem ipsum dolor{--\n\n--}sit amet…`;
     const expectedOutput = [
-      { type: "deletion", start: 215, end: 223, length: 8, content: expectedContent }
+      {
+        type: "deletion",
+        inputText: "Lorem ipsum dolor{--\n\n--}sit amet…",
+        matchedText: "{--\n\n--}",
+        start: 17,
+        end: 25,
+        length: 8,
+        content: { deletion: "\n\n" }
+      }
     ];
 
-    expect(matchAll(input, deletion).map(deletion.annotate)).to.deep.equal(expectedOutput);
+    expect(parseMatches(input, deletion)).to.deep.equal(expectedOutput);
   });
 
-  it("should render deleted paragraph properly", function () {
-    const input = inputs[1];
-    const expectedOutput = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at orci magna. Phasellus augue justo, sodales eu pulvinar ac, vulputate eget nulla. Mauris massa sem, tempor sed cursus et, semper tincidunt lacus.<del>&nbsp;</del> Praesent sagittis, quam id egestas consequat, nisl orci vehicula libero, quis ultricies nulla magna interdum sem. Maecenas eget orci vitae eros accumsan mollis. Cras mi mi, rutrum id aliquam in, aliquet vitae tellus. Sed neque justo, cursus in commodo eget, facilisis eget nunc. Cras tincidunt auctor varius.`;
+  it("should render deleted paragraph properly", () => {
+    const input = `Lorem ipsum dolor{--\n\n--}sit amet…`;
+    const expectedOutput = `Lorem ipsum dolor<del>&nbsp;</del> sit amet…`;
 
-    expect(input.replace(deletion.regex, deletion.render)).to.equal(expectedOutput);
+    expect(renderMatches(input, deletion)).to.equal(expectedOutput);
   });
 });

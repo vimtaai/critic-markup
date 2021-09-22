@@ -1,6 +1,9 @@
-# editor configs
+# Editor configs
 .vscode
 .idea
 
-# dependencies
+# Dependencies
 node_modules
+
+# Lock file (this is an NPM package)
+package-lock.json

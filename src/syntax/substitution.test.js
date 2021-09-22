@@ -1,46 +1,56 @@
 import { expect } from "chai";
 
-import { matchAll } from "../utils/match-all.js";
+import { parseMatches } from "../utils/parse-matches.js";
+import { renderMatches } from "../utils/render-matches.js";
+
 import { substitution } from "./substitution.js";
 
-const inputs = [
-  `Lorem {~~hipsum~>ipsum~~} dolor sit amet…`,
-  `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at orci magna. Phasellus augue justo, sodales eu pulvinar ac, vulputate eget nulla. {~~Mauris massa sem, tempor sed cursus et, semper tincidunt lacus.~>\n\n~~}Praesent sagittis, quam id egestas consequat, nisl orci vehicula libero, quis ultricies nulla magna interdum sem. Maecenas eget orci vitae eros accumsan mollis. Cras mi mi, rutrum id aliquam in, aliquet vitae tellus. Sed neque justo, cursus in commodo eget, facilisis eget nunc. Cras tincidunt auctor varius.`
-];
-
-describe("substitution", function () {
-  it("should parse inline properly", function () {
-    const input = inputs[0];
-    const expectedContent = ["hipsum", "ipsum"];
+describe("substitution", () => {
+  it("should parse inline properly", () => {
+    const input = "Lorem {~~hipsum~>ipsum~~} dolor…";
     const expectedOutput = [
-      { type: "substitution", start: 6, end: 25, length: 19, content: expectedContent }
+      {
+        type: "substitution",
+        inputText: "Lorem {~~hipsum~>ipsum~~} dolor…",
+        matchedText: "{~~hipsum~>ipsum~~}",
+        start: 6,
+        end: 25,
+        length: 19,
+        content: { deletion: "hipsum", addition: "ipsum" }
+      }
     ];
 
-    expect(matchAll(input, substitution).map(substitution.annotate)).to.deep.equal(expectedOutput);
+    expect(parseMatches(input, substitution)).to.deep.equal(expectedOutput);
   });
 
-  it("should render inline properly", function () {
-    const input = inputs[0];
-    const expectedOutput = `Lorem <del>hipsum</del><ins>ipsum</ins> dolor sit amet…`;
-    expect(input.replace(substitution.regex, substitution.render)).to.deep.equal(expectedOutput);
+  it("should render inline properly", () => {
+    const input = "Lorem {~~hipsum~>ipsum~~} dolor…";
+    const expectedOutput = `Lorem <del>hipsum</del><ins>ipsum</ins> dolor…`;
+
+    expect(renderMatches(input, substitution)).to.deep.equal(expectedOutput);
   });
 
-  it("should parse between paragraphs properly", function () {
-    const input = inputs[1];
-    const expectedContent = [
-      "Mauris massa sem, tempor sed cursus et, semper tincidunt lacus.",
-      "\n\n"
-    ];
+  it("should parse between paragraphs properly", () => {
+    const input = "Lorem ipsum {~~dolor~>\n\n~~}…";
     const expectedOutput = [
-      { type: "substitution", start: 152, end: 225, length: 73, content: expectedContent }
+      {
+        type: "substitution",
+        inputText: "Lorem ipsum {~~dolor~>\n\n~~}…",
+        matchedText: "{~~dolor~>\n\n~~}",
+        start: 12,
+        end: 27,
+        length: 15,
+        content: { deletion: "dolor", addition: "\n\n" }
+      }
     ];
 
-    expect(matchAll(input, substitution).map(substitution.annotate)).to.deep.equal(expectedOutput);
+    expect(parseMatches(input, substitution)).to.deep.equal(expectedOutput);
   });
 
-  it("should render between paragraphs properly", function () {
-    const input = inputs[1];
-    const expectedOutput = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at orci magna. Phasellus augue justo, sodales eu pulvinar ac, vulputate eget nulla. <del>Mauris massa sem, tempor sed cursus et, semper tincidunt lacus.</del><ins class="break">&nbsp;</ins>\n\nPraesent sagittis, quam id egestas consequat, nisl orci vehicula libero, quis ultricies nulla magna interdum sem. Maecenas eget orci vitae eros accumsan mollis. Cras mi mi, rutrum id aliquam in, aliquet vitae tellus. Sed neque justo, cursus in commodo eget, facilisis eget nunc. Cras tincidunt auctor varius.`;
-    expect(input.replace(substitution.regex, substitution.render)).to.equal(expectedOutput);
+  it("should render between paragraphs properly", () => {
+    const input = "Lorem ipsum {~~dolor~>\n\n~~}…";
+    const expectedOutput = `Lorem ipsum <del>dolor</del>\n\n<ins class="break">&nbsp;</ins>\n\n…`;
+
+    expect(renderMatches(input, substitution)).to.equal(expectedOutput);
   });
 });

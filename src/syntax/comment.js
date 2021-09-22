@@ -1,13 +1,20 @@
-const ignorePattern = "==}";
+const commentRegex = new RegExp(/\{>>(?<comment>.*?)<<\}/, "gs");
+
+function validateComment(token) {
+  return !token.inputText.slice(0, token.start).endsWith("==}");
+}
+
+function annotateComment(token) {
+  return { type: "comment", ...token };
+}
+
+function renderComment(token) {
+  return `<span class="critic comment">${token.content.comment}</span>`;
+}
 
 export const comment = {
-  regex: /\{>>(.*?)<<\}/gs,
-  validate: ({ input, index }) =>
-    input.substr(index - ignorePattern.length, ignorePattern.length) !== ignorePattern,
-  annotate(match) {
-    return { type: "comment", ...match };
-  },
-  render(_, match) {
-    return `<span class="critic comment">${match}</span>`;
-  },
+  regex: commentRegex,
+  validate: validateComment,
+  annotate: annotateComment,
+  render: renderComment
 };
