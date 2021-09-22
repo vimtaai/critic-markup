@@ -3,12 +3,12 @@
 [![License][badge-license]](https://github.com/vimtaai/critic-markup/blob/master/LICENSE.md)
 [![Version][badge-version]](https://www.npmjs.com/package/critic-markup)
 [![Code style][badge-style]](https://github.com/prettier/prettier)
-[![Build][badge-build]](https://travis-ci.org/vimtaai/critic-markup)
+[![Build][badge-build]](https://github.com/vimtaai/critic-markup/actions/workflows/test.yml)
 
-[badge-license]: https://img.shields.io/npm/l/critic-markup.svg
-[badge-version]: https://img.shields.io/npm/v/critic-markup.svg?logo=npm
-[badge-style]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?logo=prettier
-[badge-build]: https://img.shields.io/github/workflow/status/vimtaai/ci-cd/master?logo=github
+[badge-license]: https://img.shields.io/npm/l/critic-markup.svg?style=for-the-badge
+[badge-version]: https://img.shields.io/npm/v/critic-markup.svg?logo=npm&style=for-the-badge
+[badge-style]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?logo=prettier&style=for-the-badge
+[badge-build]: https://img.shields.io/github/workflow/status/vimtaai/critic-markup/Run%20Tests?logo=github&style=for-the-badge
 
 ---
 
