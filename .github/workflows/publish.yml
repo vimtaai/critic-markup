@@ -28,6 +28,11 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Setup git user
+        run: |
+          git config --local user.name "GitHub Actions (Bot)"
+          git config --local user.email "<>"
+
       - name: Create new release
         run: npm run release:create
 
