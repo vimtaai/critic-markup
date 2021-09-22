@@ -30,6 +30,7 @@ jobs:
         run: npm test
 
   publish-npm:
+    if: ${{ github.ref == 'refs/heads/publish' }}
     runs-on: ubuntu-latest
     needs: run-tests
 
@@ -43,6 +44,11 @@ jobs:
           node-version: "14"
           registry-url: "https://registry.npmjs.org"
 
-      - name: Publish to NPM
-        if: ${{ github.ref == 'refs/heads/publish' }}
-        run: npm publish
+      - name: Create new release
+        run: npm run release:create
+
+      - name: Push release to GitHub
+        run: git push --follow-tags origin master
+
+      - name: Publish to npm
+        run: npm run release:publish
