@@ -15,7 +15,7 @@
     "test:lint": "eslint src/**/*.js",
     "test:unit": "mocha src/**/*.test.js",
     "test": "npm run test:lint && npm run test:unit",
-    "publish": "semantic-release"
+    "release": "semantic-release"
   },
   "engines": {
     "node": ">=16",
