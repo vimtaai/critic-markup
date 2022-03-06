@@ -54,11 +54,5 @@ jobs:
           git config --local user.email "<>"
 
       - name: Create new release
-        run: npm run release:create
-
-      - name: Push release to GitHub
-        run: git push --follow-tags origin master
-
-      - name: Publish to npm
-        run: npm run release:publish
+        run: npm run release
 
