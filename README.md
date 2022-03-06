@@ -5,10 +5,10 @@
 [![Code style][badge-style]](https://github.com/prettier/prettier)
 [![Build][badge-build]](https://github.com/vimtaai/critic-markup/actions/workflows/test.yml)
 
-[badge-license]: https://img.shields.io/npm/l/critic-markup.svg?style=for-the-badge
-[badge-version]: https://img.shields.io/npm/v/critic-markup.svg?logo=npm&style=for-the-badge
-[badge-style]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?logo=prettier&style=for-the-badge
-[badge-build]: https://img.shields.io/github/workflow/status/vimtaai/critic-markup/Run%20Tests?logo=github&style=for-the-badge
+[badge-license]: https://img.shields.io/npm/l/critic-markup.svg
+[badge-version]: https://img.shields.io/npm/v/critic-markup.svg
+[badge-style]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg
+[badge-build]: https://img.shields.io/github/workflow/status/vimtaai/critic-markup/Run%20Tests
 
 ---
 

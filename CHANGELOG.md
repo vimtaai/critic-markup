@@ -4,5 +4,3 @@
 ### Bug Fixes
 
 * **workflows:** fix release workflow config ([dc09f4f](https://github.com/vimtaai/critic-markup/commit/dc09f4ffb283f0182c7d5f1fe415d7b31b6fb009))
-
-# Changelog
