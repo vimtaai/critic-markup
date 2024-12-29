@@ -1,4 +1,5 @@
-import { expect } from "chai";
+import { strict as assert } from "node:assert";
+import { describe, it } from "node:test";
 
 import { parseMatches } from "../utils/parse-matches.js";
 import { renderMatches } from "../utils/render-matches.js";
@@ -20,14 +21,16 @@ describe("deletion", () => {
       }
     ];
 
-    expect(parseMatches(input, deletion)).to.deep.equal(expectedOutput);
+    const parsedMatches = parseMatches(input, deletion);
+    assert.deepStrictEqual(parsedMatches, expectedOutput);
   });
 
   it("should render inline properly", () => {
     const input = `Lorem{-- ipsum--} dolor sit amet…`;
     const expectedOutput = `Lorem<del> ipsum</del> dolor sit amet…`;
 
-    expect(renderMatches(input, deletion)).to.equal(expectedOutput);
+    const renderedMatches = renderMatches(input, deletion);
+    assert.strictEqual(renderedMatches, expectedOutput);
   });
 
   it("should parse added paragraph properly", () => {
@@ -44,13 +47,15 @@ describe("deletion", () => {
       }
     ];
 
-    expect(parseMatches(input, deletion)).to.deep.equal(expectedOutput);
+    const parsedMatches = parseMatches(input, deletion);
+    assert.deepStrictEqual(parsedMatches, expectedOutput);
   });
 
   it("should render deleted paragraph properly", () => {
     const input = `Lorem ipsum dolor{--\n\n--}sit amet…`;
     const expectedOutput = `Lorem ipsum dolor<del>&nbsp;</del> sit amet…`;
 
-    expect(renderMatches(input, deletion)).to.equal(expectedOutput);
+    const renderedMatches = renderMatches(input, deletion);
+    assert.strictEqual(renderedMatches, expectedOutput);
   });
 });

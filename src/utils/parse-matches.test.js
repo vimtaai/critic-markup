@@ -1,4 +1,5 @@
-import { expect } from "chai";
+import { strict as assert } from "node:assert";
+import { describe, it } from "node:test";
 
 import { parseMatches } from "./parse-matches.js";
 
@@ -11,7 +12,8 @@ describe("parseMatches", () => {
     };
     const inputText = "A AB B AB";
 
-    expect(parseMatches(inputText, tokenType)).to.have.length(2);
+    const parsedMatches = parseMatches(inputText, tokenType);
+    assert.strictEqual(parsedMatches.length, 2);
   });
 
   it("should remove all invalid matches", () => {
@@ -22,7 +24,8 @@ describe("parseMatches", () => {
     };
     const inputText = "A AC B AB";
 
-    expect(parseMatches(inputText, tokenType)).to.have.length(1);
+    const parsedMatches = parseMatches(inputText, tokenType);
+    assert.strictEqual(parsedMatches.length, 1);
   });
 
   it("should create match tokens", () => {
@@ -33,7 +36,8 @@ describe("parseMatches", () => {
     };
     const inputText = "A AB B AB";
 
-    expect(parseMatches(inputText, tokenType)).to.deep.equal([
+    const parsedMatches = parseMatches(inputText, tokenType);
+    assert.deepStrictEqual(parsedMatches, [
       {
         type: "foo",
         inputText: "A AB B AB",

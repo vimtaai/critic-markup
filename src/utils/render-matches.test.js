@@ -1,4 +1,5 @@
-import { expect } from "chai";
+import { strict as assert } from "node:assert";
+import { describe, it } from "node:test";
 
 import { renderMatches } from "./render-matches.js";
 
@@ -11,7 +12,8 @@ describe("parseMatches", () => {
     };
     const inputText = "A AB B AB";
 
-    expect(renderMatches(inputText, tokenType)).to.equal("A ab B ab");
+    const renderedMatches = renderMatches(inputText, tokenType);
+    assert.strictEqual(renderedMatches, "A ab B ab");
   });
 
   it("should exclude all invalid matches", () => {
@@ -22,7 +24,8 @@ describe("parseMatches", () => {
     };
     const inputText = "A AC B AB";
 
-    expect(renderMatches(inputText, tokenType)).to.equal("A AC B ab");
+    const renderedMatches = renderMatches(inputText, tokenType);
+    assert.strictEqual(renderedMatches, "A AC B ab");
   });
 
   it("should replace matches with multiple capture groups", () => {
@@ -33,7 +36,8 @@ describe("parseMatches", () => {
     };
     const inputText = "A AB-AC B AB-AC";
 
-    expect(renderMatches(inputText, tokenType)).to.equal("A ab.AC B ab.AC");
+    const renderedMatches = renderMatches(inputText, tokenType);
+    assert.strictEqual(renderedMatches, "A ab.AC B ab.AC");
   });
 
   it("should exclude invalid matches with multiple capture groups", () => {
@@ -44,6 +48,7 @@ describe("parseMatches", () => {
     };
     const inputText = "A AB-AC B AB-AB";
 
-    expect(renderMatches(inputText, tokenType)).to.equal("A AB-AC B ab.AB");
+    const renderedMatches = renderMatches(inputText, tokenType);
+    assert.strictEqual(renderedMatches, "A AB-AC B ab.AB");
   });
 });

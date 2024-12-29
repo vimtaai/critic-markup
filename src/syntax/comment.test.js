@@ -1,4 +1,5 @@
-import { expect } from "chai";
+import { strict as assert } from "node:assert";
+import { describe, it } from "node:test";
 
 import { parseMatches } from "../utils/parse-matches.js";
 import { renderMatches } from "../utils/render-matches.js";
@@ -20,19 +21,22 @@ describe("comment", () => {
       }
     ];
 
-    expect(parseMatches(input, comment)).to.deep.equal(expectedOutput);
+    const parsedMatches = parseMatches(input, comment);
+    assert.deepStrictEqual(parsedMatches, expectedOutput);
   });
 
   it("should render properly", () => {
     const input = `Lorem ipsum dolor sit {>>comment<<}.`;
     const expectedOutput = `Lorem ipsum dolor sit <span class="critic comment">comment</span>.`;
 
-    expect(renderMatches(input, comment)).to.equal(expectedOutput);
+    const renderedMatches = renderMatches(input, comment);
+    assert.strictEqual(renderedMatches, expectedOutput);
   });
 
   it("should ignore comments that are actually highlights", () => {
     const input = `Lorem ipsum dolor {==sit ==}{>>comment<<}.`;
 
-    expect(parseMatches(input, comment)).to.deep.equal([]);
+    const parsedMatches = parseMatches(input, comment);
+    assert.deepStrictEqual(parsedMatches, []);
   });
 });

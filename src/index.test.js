@@ -1,4 +1,5 @@
-import { expect } from "chai";
+import { strict as assert } from "node:assert";
+import { describe, it } from "node:test";
 
 import { parse, render } from "./index.js";
 
@@ -50,7 +51,8 @@ describe("complex example", () => {
       }
     ];
 
-    expect(parse(input)).to.deep.equal(expectedOutput);
+    const parsedInput = parse(input);
+    assert.deepStrictEqual(parsedInput, expectedOutput);
   });
 
   it("should render properly", () => {
@@ -62,6 +64,7 @@ describe("complex example", () => {
       `comment">strange but true</span>, but it is because Fiction is obliged to stick to ` +
       `possibilities; Truth isn't.`;
 
-    expect(render(input)).to.equal(expectedRenderedOutput);
+    const renderedInput = render(input);
+    assert.strictEqual(renderedInput, expectedRenderedOutput);
   });
 });

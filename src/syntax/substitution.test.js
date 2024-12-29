@@ -1,4 +1,5 @@
-import { expect } from "chai";
+import { strict as assert } from "node:assert";
+import { describe, it } from "node:test";
 
 import { parseMatches } from "../utils/parse-matches.js";
 import { renderMatches } from "../utils/render-matches.js";
@@ -20,14 +21,16 @@ describe("substitution", () => {
       }
     ];
 
-    expect(parseMatches(input, substitution)).to.deep.equal(expectedOutput);
+    const parsedMatches = parseMatches(input, substitution);
+    assert.deepStrictEqual(parsedMatches, expectedOutput);
   });
 
   it("should render inline properly", () => {
     const input = "Lorem {~~hipsum~>ipsum~~} dolor…";
     const expectedOutput = `Lorem <del>hipsum</del><ins>ipsum</ins> dolor…`;
 
-    expect(renderMatches(input, substitution)).to.deep.equal(expectedOutput);
+    const renderedMatches = renderMatches(input, substitution);
+    assert.strictEqual(renderedMatches, expectedOutput);
   });
 
   it("should parse between paragraphs properly", () => {
@@ -44,13 +47,15 @@ describe("substitution", () => {
       }
     ];
 
-    expect(parseMatches(input, substitution)).to.deep.equal(expectedOutput);
+    const parsedMatches = parseMatches(input, substitution);
+    assert.deepStrictEqual(parsedMatches, expectedOutput);
   });
 
   it("should render between paragraphs properly", () => {
     const input = "Lorem ipsum {~~dolor~>\n\n~~}…";
     const expectedOutput = `Lorem ipsum <del>dolor</del>\n\n<ins class="break">&nbsp;</ins>\n\n…`;
 
-    expect(renderMatches(input, substitution)).to.equal(expectedOutput);
+    const renderedMatches = renderMatches(input, substitution);
+    assert.strictEqual(renderedMatches, expectedOutput);
   });
 });

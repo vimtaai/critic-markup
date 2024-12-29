@@ -1,4 +1,5 @@
-import { expect } from "chai";
+import { strict as assert } from "node:assert";
+import { describe, it } from "node:test";
 
 import { parseMatches } from "../utils/parse-matches.js";
 import { renderMatches } from "../utils/render-matches.js";
@@ -20,7 +21,8 @@ describe("highlight", () => {
       }
     ];
 
-    expect(parseMatches(input, highlight)).to.deep.equal(expectedOutput);
+    const parsedMatches = parseMatches(input, highlight);
+    assert.deepStrictEqual(parsedMatches, expectedOutput);
   });
 
   it("should render inline properly", () => {
@@ -28,6 +30,7 @@ describe("highlight", () => {
     const expectedOutput =
       'Lorem ipsum dolor <mark>sit</mark><span class="critic comment">amet</span>…';
 
-    expect(renderMatches(input, highlight)).to.equal(expectedOutput);
+    const renderedMatches = renderMatches(input, highlight);
+    assert.strictEqual(renderedMatches, expectedOutput);
   });
 });
