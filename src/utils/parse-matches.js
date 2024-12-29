@@ -1,6 +1,6 @@
 function createTokenFromExecMatch(match) {
   const matchedText = match[0];
-  const content = match.groups;
+  const content = { ...match.groups };
 
   return {
     inputText: match.input,
