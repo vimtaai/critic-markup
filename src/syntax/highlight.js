@@ -18,5 +18,5 @@ export const highlight = {
   regex: highlightRegex,
   validate: validateHighlight,
   annotate: annotateHighlight,
-  render: renderHighlight
+  render: renderHighlight,
 };

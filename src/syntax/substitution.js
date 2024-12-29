@@ -19,5 +19,5 @@ export const substitution = {
   regex: substitutionRegex,
   validate: validateSubstitution,
   annotate: annotateSubstitution,
-  render: renderSubstitution
+  render: renderSubstitution,
 };

@@ -8,7 +8,7 @@ describe("parseMatches", () => {
     const tokenType = {
       regex: new RegExp(/(?<foo>AB)/, "gs"),
       validate: () => true,
-      render: (token) => token.content.foo.toLowerCase()
+      render: (token) => token.content.foo.toLowerCase(),
     };
     const inputText = "A AB B AB";
 
@@ -20,7 +20,7 @@ describe("parseMatches", () => {
     const tokenType = {
       regex: new RegExp(/(?<foo>A[BC])/, "gs"),
       validate: (token) => token.content.foo !== "AC",
-      render: (token) => token.content.foo.toLowerCase()
+      render: (token) => token.content.foo.toLowerCase(),
     };
     const inputText = "A AC B AB";
 
@@ -32,7 +32,7 @@ describe("parseMatches", () => {
     const tokenType = {
       regex: new RegExp(/(?<foo>AB)-(?<bar>AC)/, "gs"),
       validate: () => true,
-      render: (token) => `${token.content.foo.toLowerCase()}.${token.content.bar}`
+      render: (token) => `${token.content.foo.toLowerCase()}.${token.content.bar}`,
     };
     const inputText = "A AB-AC B AB-AC";
 
@@ -44,7 +44,7 @@ describe("parseMatches", () => {
     const tokenType = {
       regex: new RegExp(/(?<foo>AB)-(?<bar>A[BC])/, "gs"),
       validate: (token) => token.content.bar !== "AC",
-      render: (token) => `${token.content.foo.toLowerCase()}.${token.content.bar}`
+      render: (token) => `${token.content.foo.toLowerCase()}.${token.content.bar}`,
     };
     const inputText = "A AB-AC B AB-AB";
 

@@ -8,7 +8,7 @@ function createTokenFromExecMatch(match) {
     start: match.index,
     end: match.index + matchedText.length,
     length: matchedText.length,
-    content
+    content,
   };
 }
 

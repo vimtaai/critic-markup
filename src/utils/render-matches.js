@@ -12,7 +12,7 @@ function createTokenFromReplaceMatch(match) {
     start,
     end: start + matchedText.length,
     length: matchedText.length,
-    content
+    content,
   };
 }
 

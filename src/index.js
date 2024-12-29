@@ -17,7 +17,7 @@ export function parse(inputText) {
     ...parseMatches(inputText, addition),
     ...parseMatches(inputText, deletion),
     ...parseMatches(inputText, highlight),
-    ...parseMatches(inputText, comment)
+    ...parseMatches(inputText, comment),
   ].sort(compareTokens);
 }
 

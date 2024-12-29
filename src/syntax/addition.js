@@ -20,5 +20,5 @@ export const addition = {
   regex: additionRegex,
   validate: validateAddition,
   annotate: annotateAddition,
-  render: renderAddition
+  render: renderAddition,
 };

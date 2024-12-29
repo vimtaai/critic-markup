@@ -17,8 +17,8 @@ describe("comment", () => {
         start: 22,
         end: 35,
         length: 13,
-        content: { comment: "comment" }
-      }
+        content: { comment: "comment" },
+      },
     ];
 
     const parsedMatches = parseMatches(input, comment);

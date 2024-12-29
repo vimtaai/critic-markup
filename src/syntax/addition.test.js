@@ -17,8 +17,8 @@ describe("addition", () => {
         start: 17,
         end: 27,
         length: 10,
-        content: { addition: " sit" }
-      }
+        content: { addition: " sit" },
+      },
     ];
 
     const parsedMatches = parseMatches(input, addition);
@@ -43,8 +43,8 @@ describe("addition", () => {
         start: 17,
         end: 25,
         length: 8,
-        content: { addition: "\n\n" }
-      }
+        content: { addition: "\n\n" },
+      },
     ];
 
     const parsedMatches = parseMatches(input, addition);

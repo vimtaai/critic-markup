@@ -20,7 +20,7 @@ describe("complex example", () => {
         start: 22,
         end: 43,
         length: 21,
-        content: { deletion: " to people that" }
+        content: { deletion: " to people that" },
       },
       {
         type: "substitution",
@@ -29,7 +29,7 @@ describe("complex example", () => {
         start: 120,
         end: 139,
         length: 19,
-        content: { deletion: "One", addition: "Only one" }
+        content: { deletion: "One", addition: "Only one" },
       },
       {
         type: "addition",
@@ -38,7 +38,7 @@ describe("complex example", () => {
         start: 177,
         end: 186,
         length: 9,
-        content: { addition: "any" }
+        content: { addition: "any" },
       },
       {
         type: "highlight",
@@ -47,8 +47,8 @@ describe("complex example", () => {
         start: 229,
         end: 287,
         length: 58,
-        content: { highlight: "Truth is stranger than fiction", comment: "strange but true" }
-      }
+        content: { highlight: "Truth is stranger than fiction", comment: "strange but true" },
+      },
     ];
 
     const parsedInput = parse(input);

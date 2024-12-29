@@ -20,5 +20,5 @@ export const deletion = {
   regex: deletionRegex,
   validate: validateDeletion,
   annotate: annotateDeletion,
-  render: renderDeletion
+  render: renderDeletion,
 };

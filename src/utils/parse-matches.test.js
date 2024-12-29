@@ -8,7 +8,7 @@ describe("parseMatches", () => {
     const tokenType = {
       regex: new RegExp(/AB/, "gs"),
       validate: () => true,
-      annotate: (token) => token
+      annotate: (token) => token,
     };
     const inputText = "A AB B AB";
 
@@ -20,7 +20,7 @@ describe("parseMatches", () => {
     const tokenType = {
       regex: new RegExp(/(?<foo>A[BC])/, "gs"),
       validate: (token) => token.content.foo !== "AC",
-      annotate: (token) => token
+      annotate: (token) => token,
     };
     const inputText = "A AC B AB";
 
@@ -32,7 +32,7 @@ describe("parseMatches", () => {
     const tokenType = {
       regex: new RegExp(/(?<foo>AB)/, "gs"),
       validate: () => true,
-      annotate: (token) => ({ type: "foo", ...token })
+      annotate: (token) => ({ type: "foo", ...token }),
     };
     const inputText = "A AB B AB";
 
@@ -45,7 +45,7 @@ describe("parseMatches", () => {
         start: 2,
         end: 4,
         length: 2,
-        content: { foo: "AB" }
+        content: { foo: "AB" },
       },
       {
         type: "foo",
@@ -54,8 +54,8 @@ describe("parseMatches", () => {
         start: 7,
         end: 9,
         length: 2,
-        content: { foo: "AB" }
-      }
+        content: { foo: "AB" },
+      },
     ]);
   });
 });

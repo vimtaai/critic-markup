@@ -16,5 +16,5 @@ export const comment = {
   regex: commentRegex,
   validate: validateComment,
   annotate: annotateComment,
-  render: renderComment
+  render: renderComment,
 };

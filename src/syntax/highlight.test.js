@@ -17,8 +17,8 @@ describe("highlight", () => {
         start: 18,
         end: 37,
         length: 19,
-        content: { highlight: "sit", comment: "amet" }
-      }
+        content: { highlight: "sit", comment: "amet" },
+      },
     ];
 
     const parsedMatches = parseMatches(input, highlight);

@@ -17,8 +17,8 @@ describe("deletion", () => {
         start: 5,
         end: 17,
         length: 12,
-        content: { deletion: " ipsum" }
-      }
+        content: { deletion: " ipsum" },
+      },
     ];
 
     const parsedMatches = parseMatches(input, deletion);
@@ -43,8 +43,8 @@ describe("deletion", () => {
         start: 17,
         end: 25,
         length: 8,
-        content: { deletion: "\n\n" }
-      }
+        content: { deletion: "\n\n" },
+      },
     ];
 
     const parsedMatches = parseMatches(input, deletion);

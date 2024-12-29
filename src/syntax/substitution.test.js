@@ -17,8 +17,8 @@ describe("substitution", () => {
         start: 6,
         end: 25,
         length: 19,
-        content: { deletion: "hipsum", addition: "ipsum" }
-      }
+        content: { deletion: "hipsum", addition: "ipsum" },
+      },
     ];
 
     const parsedMatches = parseMatches(input, substitution);
@@ -43,8 +43,8 @@ describe("substitution", () => {
         start: 12,
         end: 27,
         length: 15,
-        content: { deletion: "dolor", addition: "\n\n" }
-      }
+        content: { deletion: "dolor", addition: "\n\n" },
+      },
     ];
 
     const parsedMatches = parseMatches(input, substitution);
