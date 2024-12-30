@@ -4,6 +4,3 @@
 
 # Dependencies
 node_modules
-
-# Lock file (this is an NPM package)
-package-lock.json
