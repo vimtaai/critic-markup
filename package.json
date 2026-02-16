@@ -12,15 +12,13 @@
     "!src/**/*.test.js"
   ],
   "scripts": {
-    "lint": "eslint 'src/**/*.js'",
-    "format": "prettier --check 'src/**/*.js'",
     "test": "node --test",
     "test:watch": "node --watch --test",
-    "check:ci": "npm run format && npm run lint"
+    "check": "biome check",
+    "check:ci": "biome ci",
+    "check:fix": "biome check --write"
   },
   "devDependencies": {
-    "@eslint/js": "^9.17.0",
-    "eslint": "^9.17.0",
-    "prettier": "^3.4.2"
+    "@biomejs/biome": "^2.4.1"
   }
 }

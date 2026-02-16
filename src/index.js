@@ -1,11 +1,11 @@
-import { parseMatches } from "./utils/parse-matches.js";
-import { renderMatches } from "./utils/render-matches.js";
-
 import { addition } from "./syntax/addition.js";
 import { comment } from "./syntax/comment.js";
 import { deletion } from "./syntax/deletion.js";
 import { highlight } from "./syntax/highlight.js";
 import { substitution } from "./syntax/substitution.js";
+
+import { parseMatches } from "./utils/parse-matches.js";
+import { renderMatches } from "./utils/render-matches.js";
 
 function compareTokens(firstToken, secondToken) {
   return firstToken.start - secondToken.start;
