@@ -1,6 +1,6 @@
 # Changelog
 
-## Current changes
+## 2.0.1 (2026-02-16)
 
 - 🏗️ Rework CI/CD and publish pipeline
 - ⚡ Replace Prettier and ESLint with Biome
