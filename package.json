@@ -6,10 +6,10 @@
   "license": "MIT",
   "repository": "github:vimtaai/critic-markup",
   "type": "module",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "files": [
-    "src/**/*.js",
-    "!src/**/*.test.js"
+    "lib/**/*.js",
+    "!lib/**/*.test.js"
   ],
   "scripts": {
     "test": "node --test",
