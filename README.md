@@ -1,21 +1,12 @@
 # CriticMarkup
 
-[![License][badge-license]][link-license]
-[![Version][badge-version]][link-version]
-[![Build][badge-build]][link-build]
+[![License][license-badge]][license-link]
+[![Version][version-badge]][version-link]
+[![Build][build-badge]][build-link]
 
-[badge-license]: https://img.shields.io/npm/l/critic-markup.svg
-[link-license]:https://github.com/vimtaai/critic-markup/blob/master/LICENSE.md
-[badge-version]: https://img.shields.io/npm/v/critic-markup.svg
-[link-version]: https://www.npmjs.com/package/critic-markup
-[badge-build]: https://github.com/vimtaai/critic-markup/actions/workflows/test.yml/badge.svg
-[link-build]: https://github.com/vimtaai/critic-markup/actions/workflows/test.yml
+Implementation of [CriticMarkup](http://criticmarkup.com/) in JavaScript as a Node.js package/module. It provides functions to parse CriticMarkup syntax or render it into HTML.
 
----
-
-This package is an implementation of [CriticMarkup](http://criticmarkup.com/) in JavaScript as a Node.js package/module. It provides functions to parse CriticMarkup syntax or render it into HTML.
-
-## Installation
+## Setup
 
 Install via `npm`:
 
@@ -47,4 +38,11 @@ render(`Lorem{++ ipsum++} dolor sit amet.`);
 
 ## Contributing
 
-All ideas, recommendations, bug reports, pull requests are welcome. 🙂
+All ideas, recommendations, bug reports, pull requests are welcome. 😊
+
+[license-badge]: https://img.shields.io/npm/l/critic-markup.svg
+[license-link]:https://github.com/vimtaai/critic-markup/blob/master/LICENSE.md
+[version-badge]: https://img.shields.io/npm/v/critic-markup.svg
+[version-link]: https://www.npmjs.com/package/critic-markup
+[build-badge]: https://github.com/vimtaai/critic-markup/actions/workflows/main.yaml/badge.svg
+[build-link]: https://github.com/vimtaai/critic-markup/actions/workflows/main.yaml
