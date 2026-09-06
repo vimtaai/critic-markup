@@ -36,6 +36,16 @@ render(`Lorem{++ ipsum++} dolor sit amet.`);
 // Lorem<ins> ipsum</ins> dolor sit amet.
 ```
 
+By default, `render()` HTML-escapes the content of every matched tag, since this package makes no
+assumption about what kind of document it's applied to, the content could be untrusted plain
+text. If you know the content is trusted markup/HTML that should pass through unescaped (for
+example, when post-processing already-rendered output), pass `{ escape: false }`:
+
+```js
+render(`Lorem ipsum {==<em>dolor sit amet</em>==}`, { escape: false });
+// Lorem ipsum <mark><em>dolor sit amet</em></mark>
+```
+
 ## Contributing
 
 All ideas, recommendations, bug reports, pull requests are welcome. 😊
