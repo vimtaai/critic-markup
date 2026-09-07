@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.0 (2026-09-07)
+
+- 💥 Escape interpolated content by default (opt out with `{ escape: false }`)
+
 ## 2.1.0 (2026-09-07)
 
 - ✨ Support standalone highlights without a trailing comment
